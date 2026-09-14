@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anteiku Algorithms — Ahmad's ICPC Training Log</title>
+  <meta name="description" content="A personal ICPC training log: track topics you're studying and problems you've attempted, all in one place.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">紅</span>
+        Anteiku Algorithms
+        <span class="brand-sub">// training log</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="problems.html">Problem Log</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="menu-label">now open</p>
+          <h1 class="hero-title">A quiet back room<br>for ICPC prep.</h1>
+          <p class="hero-lede">
+            This is where I actually keep track of what I'm studying and
+            what I've attempted — not a highlight reel. Every topic and
+            problem below is something I've added myself, and it's meant
+            to be used, edited, and added to constantly.
+          </p>
+          <div class="hero-actions">
+            <a href="topics.html" class="btn btn-primary">Open Topics</a>
+            <a href="problems.html" class="btn btn-ghost">Open Problem Log</a>
+          </div>
+        </div>
+
+        <div class="hero-eye" aria-hidden="true">
+          <svg viewBox="0 0 300 300" class="kakugan-eye">
+            <circle cx="150" cy="150" r="145" class="eye-ring-outer"></circle>
+            <circle cx="150" cy="150" r="108" class="eye-ring-mid"></circle>
+            <circle cx="150" cy="150" r="60" class="eye-iris"></circle>
+            <path class="eye-slit" d="M150 108 Q160 150 150 192 Q140 150 150 108 Z"></path>
+            <g class="eye-veins">
+              <path d="M150 42 L150 90"></path>
+              <path d="M258 150 L210 150"></path>
+              <path d="M150 258 L150 210"></path>
+              <path d="M42 150 L90 150"></path>
+              <path d="M223 77 L193 107"></path>
+              <path d="M223 223 L193 193"></path>
+              <path d="M77 223 L107 193"></path>
+              <path d="M77 77 L107 107"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="kagune-divider" aria-hidden="true"></div>
+
+    <section class="section preview-section">
+      <div class="container preview-grid">
+        <div>
+          <p class="menu-label">how it works</p>
+          <h2 class="section-heading">Two lists, kept in sync</h2>
+          <p class="section-intro">
+            <strong>Topics</strong> is where I track how comfortable I am
+            with each area — graphs, DP, strings, number theory — with
+            my own notes on what's still shaky.
+            <strong>Problem Log</strong> is where every attempt goes:
+            judge, difficulty, verdict, and a topic tag linking back to
+            the list above, so I can see everything I've tried under a
+            given topic in one place.
+          </p>
+          <a href="topics.html" class="btn btn-ghost">Start with Topics →</a>
+        </div>
+        <ul class="preview-list" id="revisit-preview">
+          <!-- populated by home.js with actual revisit-flagged problems -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Anteiku Algorithms</h4>
+        <p>A personal ICPC training log — built for Web Technologies, Assignment 01.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="topics.html">Topics</a></li>
+          <li><a href="problems.html">Problem Log</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://codeforces.com/profile/Ahmad-Skeptical" target="_blank" rel="noopener">Codeforces</a></li>
+          <li><a href="https://leetcode.com/u/Ahmad_Rzx/" target="_blank" rel="noopener">LeetCode</a></li>
+          <li><a href="https://github.com/Ahmad-Rzx" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ahmad. Built with HTML, CSS &amp; JS.</span>
+      <span>No official Tokyo Ghoul artwork used — original design only.</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
