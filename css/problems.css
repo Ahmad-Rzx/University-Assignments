@@ -1,0 +1,120 @@
+.problems-hero { padding-bottom: 1.5rem; }
+.problems-hero .btn { margin-top: 1.5rem; margin-bottom: 1.8rem; display: inline-flex; }
+
+.problems-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.problems-search { max-width: 420px; }
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.filter-select { max-width: 200px; }
+
+.filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--bone-dim);
+  cursor: pointer;
+}
+
+.filter-checkbox input {
+  accent-color: var(--kakugan-bright);
+  width: 16px; height: 16px;
+}
+
+/* ===== Add/edit form ===== */
+.problem-form-section { padding-top: 0; padding-bottom: 2rem; }
+
+.problem-form {
+  background: var(--surface);
+  border: 1px solid var(--kakugan);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.problem-form h2 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.form-actions { display: flex; gap: 0.8rem; }
+
+/* ===== Table ===== */
+.problems-table-section { padding-top: 1rem; }
+
+.problems-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.problems-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 720px;
+}
+
+.problems-table th,
+.problems-table td {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.problems-table th {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--bone-dim);
+  background: var(--surface);
+}
+
+.problems-table tbody tr:hover { background: var(--surface); }
+.problems-table tbody tr:last-child td { border-bottom: none; }
+
+.problem-name-cell a {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--line);
+}
+
+.problem-name-cell a:hover { color: var(--kakugan-bright); border-color: var(--kakugan-bright); }
+
+.revisit-flag {
+  color: var(--warn);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .filter-row { flex-direction: column; align-items: stretch; }
+  .filter-select { max-width: none; }
+}

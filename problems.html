@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Log — Anteiku Algorithms</title>
+  <meta name="description" content="Log every problem you attempt: judge, topic, difficulty, verdict, and notes, with a revisit flag for spaced repetition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/problems.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">紅</span>
+        Anteiku Algorithms
+        <span class="brand-sub">// training log</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="problems.html" aria-current="page">Problem Log</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section problems-hero">
+      <div class="container">
+        <p class="menu-label">the back room</p>
+        <h1 class="section-heading">Problem Log</h1>
+        <p class="section-intro">
+          Every problem I've attempted, with judge, topic, difficulty,
+          verdict, and my own notes. Flag anything worth redoing later.
+        </p>
+
+        <button id="add-problem-btn" class="btn btn-primary">+ Log a problem</button>
+
+        <div class="problems-controls">
+          <label class="visually-hidden" for="problem-search">Search problems</label>
+          <input
+            type="search"
+            id="problem-search"
+            class="field-input problems-search"
+            placeholder="Search by problem name…"
+            autocomplete="off"
+          >
+
+          <div class="filter-row">
+            <select id="filter-topic" class="field-select filter-select">
+              <option value="all">All topics</option>
+            </select>
+            <select id="filter-verdict" class="field-select filter-select">
+              <option value="all">All verdicts</option>
+              <option value="AC">AC</option>
+              <option value="WA">WA</option>
+              <option value="TLE">TLE</option>
+              <option value="Unsolved">Unsolved</option>
+            </select>
+            <label class="filter-checkbox">
+              <input type="checkbox" id="filter-revisit">
+              Revisit only
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Add/Edit problem form ===== -->
+    <section class="section problem-form-section" id="problem-form-section" hidden>
+      <div class="container">
+        <form id="problem-form" class="problem-form" novalidate>
+          <h2 id="problem-form-heading">Log a problem</h2>
+          <input type="hidden" id="problem-id">
+
+          <div class="form-grid">
+            <div class="field-group" id="group-problem-name">
+              <label class="field-label" for="problem-name">Problem name</label>
+              <input type="text" id="problem-name" class="field-input" placeholder="e.g. Two Sets" required>
+              <span class="field-error" id="error-problem-name"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="problem-link">Link (optional)</label>
+              <input type="url" id="problem-link" class="field-input" placeholder="https://…">
+              <span class="field-error" id="error-problem-link"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="problem-judge">Judge</label>
+              <select id="problem-judge" class="field-select">
+                <option value="Codeforces">Codeforces</option>
+                <option value="CSES">CSES</option>
+                <option value="LeetCode">LeetCode</option>
+                <option value="AtCoder">AtCoder</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field-group" id="group-problem-topic">
+              <label class="field-label" for="problem-topic">Topic</label>
+              <select id="problem-topic" class="field-select" required>
+                <!-- populated from Topics data -->
+              </select>
+              <span class="field-error" id="error-problem-topic"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="problem-difficulty">Difficulty</label>
+              <select id="problem-difficulty" class="field-select">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="problem-verdict">Verdict</label>
+              <select id="problem-verdict" class="field-select">
+                <option value="AC">AC</option>
+                <option value="WA">WA</option>
+                <option value="TLE">TLE</option>
+                <option value="Unsolved">Unsolved</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="problem-notes">Notes</label>
+            <textarea id="problem-notes" class="field-textarea" rows="3" placeholder="What went wrong, what to remember next time…"></textarea>
+          </div>
+
+          <label class="filter-checkbox">
+            <input type="checkbox" id="problem-revisit">
+            Flag to revisit
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="problem-submit-btn">Save entry</button>
+            <button type="button" class="btn btn-ghost" id="problem-cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section problems-table-section">
+      <div class="container">
+        <p class="empty-state" id="problems-empty" hidden>
+          No problems match — try a different filter, or log your first one above.
+        </p>
+
+        <div class="problems-table-wrap">
+          <table class="problems-table" id="problems-table">
+            <thead>
+              <tr>
+                <th>Problem</th>
+                <th>Judge</th>
+                <th>Topic</th>
+                <th>Difficulty</th>
+                <th>Verdict</th>
+                <th>Revisit</th>
+                <th><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="problems-tbody">
+              <!-- populated by problems.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Anteiku Algorithms</h4>
+        <p>A personal ICPC training log — built for Web Technologies, Assignment 01.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="topics.html">Topics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://codeforces.com/profile/Ahmad-Skeptical" target="_blank" rel="noopener">Codeforces</a></li>
+          <li><a href="https://leetcode.com/u/Ahmad_Rzx/" target="_blank" rel="noopener">LeetCode</a></li>
+          <li><a href="contact.html">Contact page</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ahmad. Built with HTML, CSS &amp; JS.</span>
+      <span>Data is saved locally in this browser only.</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/problems.js"></script>
+</body>
+</html>
