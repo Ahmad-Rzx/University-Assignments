@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topics — Anteiku Algorithms</title>
+  <meta name="description" content="Track the CP topics you're studying, rate your comfort level, and keep notes on what's still shaky.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/topics.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">紅</span>
+        Anteiku Algorithms
+        <span class="brand-sub">// training log</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="topics.html" aria-current="page">Topics</a></li>
+        <li><a href="problems.html">Problem Log</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section topics-hero">
+      <div class="container">
+        <p class="menu-label">the menu</p>
+        <h1 class="section-heading">Topics</h1>
+        <p class="section-intro">
+          Every area I'm building up, rated by how comfortable I feel
+          right now, with my own notes on the gaps. This is meant to
+          change constantly — ratings should move as you actually
+          improve.
+        </p>
+
+        <button id="add-topic-btn" class="btn btn-primary">+ Add a topic</button>
+      </div>
+    </section>
+
+    <!-- ===== Add/Edit topic form (hidden until "Add a topic" or an edit is clicked) ===== -->
+    <section class="section topic-form-section" id="topic-form-section" hidden>
+      <div class="container">
+        <form id="topic-form" class="topic-form" novalidate>
+          <h2 id="topic-form-heading">Add a topic</h2>
+          <input type="hidden" id="topic-id">
+
+          <div class="field-group" id="group-topic-name">
+            <label class="field-label" for="topic-name">Topic name</label>
+            <input type="text" id="topic-name" class="field-input" placeholder="e.g. Segment Trees" required>
+            <span class="field-error" id="error-topic-name"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="topic-comfort">
+              Comfort level: <span id="comfort-readout">3</span> / 5
+            </label>
+            <input type="range" id="topic-comfort" min="1" max="5" value="3" class="field-range">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="topic-notes">Notes</label>
+            <textarea id="topic-notes" class="field-textarea" rows="4" placeholder="What's solid, what's shaky, what to revisit…"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="topic-submit-btn">Save topic</button>
+            <button type="button" class="btn btn-ghost" id="topic-cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section topics-grid-section">
+      <div class="container">
+        <p class="empty-state" id="topics-empty" hidden>
+          No topics yet — add your first one above.
+        </p>
+        <div class="topics-grid" id="topics-grid">
+          <!-- populated by topics.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Anteiku Algorithms</h4>
+        <p>A personal ICPC training log — built for Web Technologies, Assignment 01.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="problems.html">Problem Log</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://codeforces.com/profile/Ahmad-Skeptical" target="_blank" rel="noopener">Codeforces</a></li>
+          <li><a href="https://leetcode.com/u/Ahmad_Rzx/" target="_blank" rel="noopener">LeetCode</a></li>
+          <li><a href="contact.html">Contact page</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ahmad. Built with HTML, CSS &amp; JS.</span>
+      <span>Data is saved locally in this browser only.</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/topics.js"></script>
+</body>
+</html>

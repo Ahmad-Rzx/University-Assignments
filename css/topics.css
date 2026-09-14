@@ -1,0 +1,110 @@
+.topics-hero { padding-bottom: 1.5rem; }
+
+.topics-hero .btn { margin-top: 1.5rem; }
+
+/* ===== Add/edit form ===== */
+.topic-form-section { padding-top: 0; padding-bottom: 2rem; }
+
+.topic-form {
+  background: var(--surface);
+  border: 1px solid var(--kakugan);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.topic-form h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.field-range {
+  width: 100%;
+  accent-color: var(--kakugan-bright);
+}
+
+.form-actions { display: flex; gap: 0.8rem; }
+
+/* ===== Topics grid ===== */
+.topics-grid-section { padding-top: 1rem; }
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Mask-shaped card: an original notched silhouette on the top-left
+   corner, evoking a ghoul mask edge without depicting any actual
+   mask artwork. Pure CSS clip-path polygon. */
+.topic-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  clip-path: polygon(0% 12%, 8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.topic-card:hover { border-color: var(--kakugan); }
+
+.topic-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.topic-card-head h3 { font-size: 1.15rem; margin: 0; }
+
+.comfort-meter {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.comfort-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.comfort-dot.is-filled {
+  background: var(--kakugan-bright);
+  box-shadow: 0 0 6px var(--kakugan-glow);
+}
+
+.topic-card-notes {
+  color: var(--bone-dim);
+  font-size: 0.9rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.topic-card-notes:empty::before {
+  content: "No notes yet.";
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.topic-card-linked {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--bone-dim);
+}
+
+.topic-card-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .topics-grid { grid-template-columns: 1fr; }
+  .form-actions { flex-wrap: wrap; }
+}
