@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Anteiku Algorithms</title>
+  <meta name="description" content="Get in touch, or find Ahmad on Codeforces, LeetCode, LinkedIn, and GitHub.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">紅</span>
+        Anteiku Algorithms
+        <span class="brand-sub">// training log</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="problems.html">Problem Log</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="menu-label">reach the counter</p>
+        <h1 class="section-heading">Get in touch</h1>
+        <p class="section-intro">
+          Whether it's about a contest, teaming up for ICPC, or just to
+          talk algorithms — here's where to find me.
+        </p>
+
+        <div class="contact-grid">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="field-group">
+              <label class="field-label" for="name">Name</label>
+              <input type="text" id="name" name="name" class="field-input" required minlength="2">
+              <span class="field-error" id="error-name" role="alert"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="email">Email</label>
+              <input type="email" id="email" name="email" class="field-input" required>
+              <span class="field-error" id="error-email" role="alert"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="subject">Subject</label>
+              <select id="subject" name="subject" class="field-select" required>
+                <option value="" disabled selected>Choose one…</option>
+                <option value="icpc">ICPC / teaming up</option>
+                <option value="contest">Contest discussion</option>
+                <option value="project">Project collaboration</option>
+                <option value="other">Something else</option>
+              </select>
+              <span class="field-error" id="error-subject" role="alert"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="message">Message</label>
+              <textarea id="message" name="message" class="field-textarea" rows="5" required minlength="10"></textarea>
+              <span class="field-error" id="error-message" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-success" id="form-success" role="status" hidden>
+              Message validated — in a live deployment this would now be sent. Thanks for reaching out!
+            </p>
+          </form>
+
+          <aside class="contact-side">
+            <div class="contact-card">
+              <h3>Find me online</h3>
+              <ul class="social-list">
+                <li>
+                  <a href="https://codeforces.com/profile/Ahmad-Skeptical" target="_blank" rel="noopener">
+                    <span class="social-label">Codeforces</span>
+                    <span class="social-handle">Ahmad-Skeptical</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://leetcode.com/u/Ahmad_Rzx/" target="_blank" rel="noopener">
+                    <span class="social-label">LeetCode</span>
+                    <span class="social-handle">Ahmad_Rzx</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/syed-ahmad-raza-226559335/" target="_blank" rel="noopener">
+                    <span class="social-label">LinkedIn</span>
+                    <span class="social-handle">syed-ahmad-raza</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/Ahmad-Rzx" target="_blank" rel="noopener">
+                    <span class="social-label">GitHub</span>
+                    <span class="social-handle">Ahmad-Rzx</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact-card">
+              <h3>Based in</h3>
+              <p>Lahore, Pakistan</p>
+              <p class="contact-note">Open to teaming up for ICPC or trading notes on contest prep.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Anteiku Algorithms</h4>
+        <p>A personal ICPC training log — built for Web Technologies, Assignment 01.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="topics.html">Topics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://codeforces.com/profile/Ahmad-Skeptical" target="_blank" rel="noopener">Codeforces</a></li>
+          <li><a href="https://leetcode.com/u/Ahmad_Rzx/" target="_blank" rel="noopener">LeetCode</a></li>
+          <li><a href="problems.html">Problem Log</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ahmad. Built with HTML, CSS &amp; JS.</span>
+      <span>No official Tokyo Ghoul artwork used — original design only.</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
